@@ -188,3 +188,246 @@ html[data-theme=light]{color-scheme:light;--bg:#f6f5fb;--surface:#fff;--surface-
     margin-top: 36px;
   }
 }
+
+
+/* ========================================
+   AniMood Glass Authentication Card
+   Scoped to the sign-in/sign-up modal only
+======================================== */
+
+.animood-auth-modal .modal-dialog {
+  max-width: 440px;
+  margin: 1.25rem auto;
+}
+
+.animood-auth-modal .modal-content.animood-auth-card {
+  position: relative;
+  overflow: hidden;
+  color: #f5f3ff;
+  background: rgba(19, 17, 35, 0.88);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 26px;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.5),
+    0 0 45px rgba(139, 92, 246, 0.12);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.animood-auth-card::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  width: 280px;
+  height: 220px;
+  transform: translateX(-50%);
+  background: rgba(139, 92, 246, 0.2);
+  filter: blur(75px);
+  pointer-events: none;
+}
+
+.animood-auth-card .auth-card-top,
+.animood-auth-card .auth-card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.animood-auth-card .auth-card-top {
+  padding: 36px 28px 20px;
+  text-align: center;
+}
+
+.animood-auth-card .auth-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #c4bddd;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: background 0.2s, color 0.2s;
+}
+
+.animood-auth-card .auth-close-btn:hover {
+  color: white;
+  background: rgba(139, 92, 246, 0.25);
+}
+
+.animood-auth-card .auth-logo {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  color: white;
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, #a78bfa, #7c3aed);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 19px;
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.35);
+}
+
+.animood-auth-card .auth-eyebrow {
+  margin: 0 0 8px;
+  color: #b8a2ff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+
+.animood-auth-card #authModalTitle {
+  margin: 0;
+  color: #fff;
+  font: 700 clamp(1.45rem, 5vw, 1.8rem)/1.2 "Space Grotesk", sans-serif;
+  letter-spacing: -0.7px;
+}
+
+.animood-auth-card .auth-subtitle {
+  margin: 9px 0 0;
+  color: #aaa4c1;
+  font-size: 0.88rem;
+}
+
+.animood-auth-card .auth-card-body {
+  padding: 8px 28px 28px;
+}
+
+.animood-auth-card .auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  margin-bottom: 25px;
+  background: rgba(5, 5, 15, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+}
+
+.animood-auth-card .auth-tab {
+  padding: 11px;
+  color: #aaa4c1;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.animood-auth-card .auth-tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, #8b5cf6, #7040db);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25);
+}
+
+.animood-auth-card .auth-field .form-label {
+  margin-bottom: 8px;
+  color: #e4dff3;
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.animood-auth-card .auth-input-wrap {
+  position: relative;
+}
+
+.animood-auth-card .auth-input-wrap > i {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  z-index: 2;
+  color: #a78bfa;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.animood-auth-card .auth-input-wrap .form-control {
+  min-height: 49px;
+  padding: 12px 14px 12px 43px;
+  color: #f5f3ff;
+  background: rgba(8, 8, 20, 0.5);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 12px;
+  box-shadow: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.animood-auth-card .auth-input-wrap .form-control::placeholder {
+  color: #77718e;
+}
+
+.animood-auth-card .auth-input-wrap .form-control:focus {
+  color: #fff;
+  background: rgba(8, 8, 20, 0.75);
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+.animood-auth-card .auth-submit {
+  min-height: 50px;
+  margin-top: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, #9b72f2, #713ce1);
+  border: 0;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.22);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+.animood-auth-card .auth-submit:hover {
+  color: #fff;
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 11px 28px rgba(124, 58, 237, 0.32);
+}
+
+.animood-auth-card .auth-error {
+  min-height: 0;
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+}
+
+.animood-auth-card .auth-footer-note {
+  margin: 20px 0 0;
+  color: #9690ad;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.animood-auth-card .auth-legacy-switch {
+  margin-top: 14px;
+  color: #aaa4c1;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.animood-auth-card .auth-legacy-switch .btn-link {
+  margin-left: 4px;
+  color: #b8a2ff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.animood-auth-card .auth-legacy-switch .btn-link:hover {
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .animood-auth-modal .modal-dialog {
+    margin: 12px;
+  }
+
+  .animood-auth-card .auth-card-top {
+    padding: 32px 20px 18px;
+  }
+
+  .animood-auth-card .auth-card-body {
+    padding: 8px 20px 24px;
+  }
+}

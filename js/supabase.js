@@ -27,24 +27,43 @@ const authSwitch = document.getElementById("authSwitch");
 const authSwitchText = document.getElementById("authSwitchText");
 const authError = document.getElementById("authError");
 
+
 function updateAuthForm() {
   const registering = authMode === "register";
 
   document.getElementById("authModalTitle").textContent =
     registering ? "Create your AniMood account" : "Welcome to AniMood";
 
-  authSubmit.textContent = registering ? "Register" : "Login";
+  authSubmit.textContent = registering ? "Create Account" : "Sign In";
+
   authSwitchText.textContent = registering
     ? "Already have an account?"
     : "Don't have an account?";
 
-  authSwitch.textContent = registering ? "Login" : "Register";
+  authSwitch.textContent = registering ? "Sign In" : "Create Account";
+
   authPassword.autocomplete = registering
     ? "new-password"
     : "current-password";
 
   authError.textContent = "";
+
+  // Update the new visual tabs, if they exist in index.html.
+  const loginTab = document.getElementById("authLoginTab");
+  const registerTab = document.getElementById("authRegisterTab");
+
+  if (loginTab) {
+    loginTab.classList.toggle("active", !registering);
+    loginTab.setAttribute("aria-selected", String(!registering));
+  }
+
+  if (registerTab) {
+    registerTab.classList.toggle("active", registering);
+    registerTab.setAttribute("aria-selected", String(registering));
+  }
 }
+
+
 function openAuthModal(mode) {
   authMode = mode;
   updateAuthForm();
@@ -93,6 +112,24 @@ authSwitch.addEventListener("click", () => {
   authMode = authMode === "login" ? "register" : "login";
   updateAuthForm();
 });
+
+
+const authLoginTab = document.getElementById("authLoginTab");
+const authRegisterTab = document.getElementById("authRegisterTab");
+
+if (authLoginTab) {
+  authLoginTab.addEventListener("click", () => {
+    authMode = "login";
+    updateAuthForm();
+  });
+}
+
+if (authRegisterTab) {
+  authRegisterTab.addEventListener("click", () => {
+    authMode = "register";
+    updateAuthForm();
+  });
+}
 
 authForm.addEventListener("submit", async event => {
   event.preventDefault();

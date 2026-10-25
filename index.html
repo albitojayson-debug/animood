@@ -253,36 +253,73 @@
   </main>
   <div id="toastMessage" class="toast-message" role="status" aria-live="polite"></div>
   
-<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalTitle" aria-hidden="true">
+
+<div class="modal fade animood-auth-modal" id="authModal" tabindex="-1" aria-labelledby="authModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title fs-5" id="authModalTitle">Welcome to AniMood</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-content animood-auth-card">
+
+      <div class="auth-card-top">
+        <button type="button" class="auth-close-btn" data-bs-dismiss="modal" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="auth-logo">
+          <i class="bi bi-stars"></i>
+        </div>
+
+        <p class="auth-eyebrow">YOUR ANIME WORLD</p>
+        <h2 class="modal-title" id="authModalTitle">Welcome to AniMood</h2>
+        <p class="auth-subtitle">Sign in to continue your journey.</p>
       </div>
 
-      <div class="modal-body">
+      <div class="modal-body auth-card-body">
+        <div class="auth-tabs" aria-label="Authentication options">
+          <button type="button" class="auth-tab active" id="authLoginTab" aria-selected="true">
+            Sign In
+          </button>
+          <button type="button" class="auth-tab" id="authRegisterTab" aria-selected="false">
+            Sign Up
+          </button>
+        </div>
+
         <form id="authForm">
-          <div class="mb-3">
-            <label for="authEmail" class="form-label">Email</label>
-            <input id="authEmail" class="form-control" type="email" required autocomplete="email">
+          <div class="auth-field mb-3">
+            <label for="authEmail" class="form-label">Email address</label>
+            <div class="auth-input-wrap">
+              <i class="bi bi-envelope"></i>
+              <input id="authEmail" class="form-control" type="email"
+                     placeholder="you@example.com" required autocomplete="email">
+            </div>
           </div>
 
-          <div class="mb-3">
+          <div class="auth-field mb-2">
             <label for="authPassword" class="form-label">Password</label>
-            <input id="authPassword" class="form-control" type="password" required minlength="6" autocomplete="current-password">
+            <div class="auth-input-wrap">
+              <i class="bi bi-lock"></i>
+              <input id="authPassword" class="form-control" type="password"
+                     placeholder="Enter your password" required minlength="6"
+                     autocomplete="current-password">
+            </div>
           </div>
 
-          <p id="authError" class="text-danger" role="alert"></p>
+          <p id="authError" class="text-danger auth-error" role="alert"></p>
 
-          <button id="authSubmit" class="btn btn-primary w-100" type="submit">Login</button>
+          <button id="authSubmit" class="btn btn-primary auth-submit w-100" type="submit">
+            Sign In <i class="bi bi-arrow-right ms-2"></i>
+          </button>
         </form>
 
-        <p class="mt-3 mb-0 text-center">
+        <p class="auth-footer-note">
+          Find a wallpaper that feels like you.
+        </p>
+
+        <!-- Kept for compatibility with existing authentication code -->
+        <div class="auth-legacy-switch">
           <span id="authSwitchText">Don't have an account?</span>
           <button id="authSwitch" class="btn btn-link p-0" type="button">Register</button>
-        </p>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
